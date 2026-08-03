@@ -1,0 +1,25 @@
+dataset:
+  name: kitti
+  sequence: "00"
+  raw_path: "data/raw/kitti"
+  processed_path: "data/processed/kitti"
+  val_every_n_frames: 8
+  frame_range: [0, 150]   # ~150 frames -- a manageable corridor segment, not the full 4541-frame route
+
+reconstruction:
+  nerf:
+    encoding: hashgrid    # instant-ngp style
+    hidden_dim: 64
+    n_levels: 16
+    max_steps: 20000
+  gaussian_splat:
+    max_gaussians: 2000000
+    densify_interval: 100
+    max_steps: 30000
+
+rendering:
+  lateral_offsets_m: [0, 0.5, 1.0, 1.5, 2.0]   # for novel-view degradation curve
+
+metrics:
+  detector: yolo_v8n   # placeholder -- swap for whatever's available/appropriate
+  output_dir: results/kitti_baseline

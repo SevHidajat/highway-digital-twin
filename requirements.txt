@@ -1,0 +1,12 @@
+torch>=2.2
+torchvision
+numpy
+scipy
+opencv-python
+pyyaml
+pytest
+lpips
+scikit-image
+matplotlib
+tqdm
+open3d
